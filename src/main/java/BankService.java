@@ -43,5 +43,6 @@ public class BankService {
      */
     public double getBalance(){
         return BankService.balance;
+        
     }
 }

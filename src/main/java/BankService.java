@@ -10,7 +10,7 @@ public class BankService {
      * that could cause the balance to exhibit unintended behavior, like being negative. The private access modifier
      * will allow only the methods within this class to interact with the balance.
      */
-    private double balance;
+    private static double balance;
     /**
      * A constructor to build a BankService object that will start the bank balance at 0. There is no need to change
      * anything in this constructor.
@@ -23,7 +23,7 @@ public class BankService {
      * @param amount the amount to be deposited.
      */
     public void deposit(double amount){
-
+        BankService.balance += amount;
     }
 
     /**
@@ -32,7 +32,9 @@ public class BankService {
      * @param amount the amount to be withdrawn.
      */
     public void withdraw(double amount){
-
+        if (BankService.balance >= amount){
+        BankService.balance -= amount;
+        }
     }
 
     /**
@@ -40,6 +42,6 @@ public class BankService {
      * @return the user's balance.
      */
     public double getBalance(){
-        return 0;
+        return BankService.balance;
     }
 }
